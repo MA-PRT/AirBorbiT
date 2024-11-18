@@ -1,0 +1,11 @@
+#index rockets
+<div class="container">
+  <div>
+    <% @rockets.each do |rocket| %>
+    <div>
+    <%= rocket.name %>
+    <%= rocket.price_per_day %>
+    <%= rocket.number_passengers %>
+    </div>
+  </div>
+</div>

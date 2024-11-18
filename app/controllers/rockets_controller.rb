@@ -22,14 +22,17 @@ class RocketsController < ApplicationController
     end
   end
 
-
   def edit
   end
 
   def update
+    @rocket.update(params_rocket)
+    redirect_to rocket_path(@rocket)
   end
 
   def destroy
+    @rocket.destroy
+    redirect_to rockets_path
   end
 
   private

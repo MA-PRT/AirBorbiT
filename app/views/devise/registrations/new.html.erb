@@ -1,12 +1,12 @@
 <div class="container d-flex justify-content-center align-items-center">
   <div class="row">
-    <div class="col-16 md-6 lg-4 bg-light p-4 rounded shadow-sm" style="margin-top: 7em;">
-      <h2 class="text-center mb-4">Sign up</h2>
+    <div class="col-16 md-6 lg-4 bg-transparent p-4 rounded shadow-sm" style="margin-top: 7em;">
+      <h2 class="text-center mb-4 text-white">Sign up</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs">
+        <div class="form-inputs text-white">
           <%= f.input :email,
                       required: true,
                       autofocus: true,

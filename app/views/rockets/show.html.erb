@@ -1,19 +1,15 @@
 <div class="container bg-black border border-3 border-white rounded-5">
-  <!-- Row for main content -->
   <div class="row justify-content-between">
 
-    <!-- Column for Carousel -->
     <div class="col-7 bg-light-grey text-white">
       <div id="carouselExampleIndicators" class="carousel slide">
 
-        <!-- Carousel Indicators -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
-        <!-- Carousel Inner Items -->
         <div class="carousel-inner">
           <div class="carousel-item active carousel-img">
             <img src="<%= @rocket.img_url %>" class="d-block w-100" alt="Rocket Image 1">
@@ -26,7 +22,6 @@
           </div>
         </div>
 
-        <!-- Carousel Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -38,7 +33,6 @@
       </div>
     </div>
 
-    <!-- Column for Rocket Details -->
     <div class="col-4 text-white m-4">
       <h1 class="m-3"><%= @rocket.name %></h1>
       <h4 class="m-3">Price: <%= @rocket.price_per_day %> $ / day</h4>
@@ -47,13 +41,11 @@
     </div>
 
   </div>
-
-
-  <!-- Booking Button Outside of the Carousel and Rocket Details -->
+</div>
   <div class="row mt-4">
     <div class="col text-center">
       <div data-controller="toggle">
-        <button data-action="click->toggle#fire" class="btn btn-outline-success btn-lg">
+        <button data-action="click->toggle#fire" class="btn btn- btn-lg">
           Book the <%= @rocket.name %>!
         </button>
         <div data-toggle-target="togglableElement" class="d-none mt-3">
@@ -62,4 +54,3 @@
       </div>
     </div>
   </div>
-</div>

@@ -12,3 +12,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home";
+
+body {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NGC281_Nebulosa_do_Pacman.jpg/1920px-NGC281_Nebulosa_do_Pacman.jpg);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}

@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_19_160505) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img_url2"
+    t.string "img_url3"
     t.index ["user_id"], name: "index_rockets_on_user_id"
   end
 

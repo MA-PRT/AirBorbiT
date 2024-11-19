@@ -1,19 +1,28 @@
-#index rockets
-<div class="container">
-  <div class="d-flex justify-content-end">
-  <%= link_to "New rocket", new_rocket_path, class: "btn btn-primary ms-3" %>
+<br>
+<div id="index" class="container text-center text-white shadow-2">
+  <h1>Available rockets <i class="fa-solid fa-rocket fa-spin"></i></h1>
+  <br>
+  <%= link_to "Add your rocket", new_rocket_path, class: "btn btn-light" %>
+  <br>
+  <div class="row text-center">
+
+  <div>
+    <br>
+    <h3 class="shadow-2">Do you want to become a Pilot?</h3>
+    <br>
+    <h4 class="shadow-2">Choose your <i class="fa-solid fa-shuttle-space fa-bounce"></i> and get ready for take-off!</h4>
   </div>
-  <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <% @rockets.each do |rocket| %>
-          <%= rocket.name %>
-          <img src="<%= rocket.img_url %>" alt="<%= rocket.name %>" />
-          <%= truncate(rocket.content, length: 80) %>
-          <%= rocket.price_per_day %>
-          <%= rocket.number_passengers %>
-        <% end %>
-      </div>
-    </div>
+
+    <% @rockets.each do |rocket| %>
+      <%= link_to rocket_path(rocket), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
+        <img src="<%= rocket.img_url %>" alt="Picture of <%= rocket.name %>" class="card-img-top h-100 rounded-top-4" >
+        <div class="card-body">
+          <h5 class="card-title mb-2"><strong></strong><%= rocket.name %></h5>
+          <p class="card-text m-0"><i class="fa-solid fa-credit-card fa-shake"></i> <%= rocket.price_per_day %>$/day</p>
+          <p class="card-text m-0"><%= rocket.number_passengers %> <i class="fa-solid fa-user-astronaut fa-bounce"></i></p>
+        </div>
+      <% end %>
+    <% end %>
+
   </div>
 </div>

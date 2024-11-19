@@ -18,6 +18,23 @@
     </div>
     <div class="carousel-item">
       <img src="<%= @rocket.img_url3 %>" class="d-block w-100" alt="...">
+    <div class="col-4 text-white m-4">
+      <h1 class="m-3"><%= @rocket.name %></h1>
+      <h4 class="m-3">Price : <%= @rocket.price_per_day %> $ / day </h4>
+      <h4 class="m-3">Passenger capacity : <%= @rocket.number_passengers %></h4>
+      <h5 class="m-3"><%= @rocket.content %></h5>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col text-center">
+      <div data-controller="toggle">
+        <button data-action="click->toggle#fire" class="btn btn-outline-success btn-lg">
+          Book the <%= @rocket.name %>!
+        </button>
+        <div data-toggle-target="togglableElement" class="d-none mt-3">
+          <%= render "bookings/form", rocket: @rocket %>
+        </div>
+      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

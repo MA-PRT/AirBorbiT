@@ -4,3 +4,14 @@
 #index {
   background-image: "https://s2.best-wallpaper.net/wallpaper/3840x2160/1803/NGC-7380-Wizard-Nebula-stars-universe_3840x2160.jpg";
 }
+
+.card {
+  transition:0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: $light-gray;
+  color: $gray;
+  text-decoration: none;
+}

@@ -1,0 +1,37 @@
+.rocket-name {
+  font-size: 2.5rem;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: orange;
+}
+
+.rocket-details {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  text-align: left;
+  color: lightgray;
+  strong {
+    letter-spacing: 0.2rem;
+  }
+}
+
+.rocket-description {
+  font-size: 1rem;
+  font-style: italic;
+  color: lightgrey;
+  margin-top: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+#show-container {
+  background-color: rgba(32, 32, 32, 0.8);
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 20px;
+}

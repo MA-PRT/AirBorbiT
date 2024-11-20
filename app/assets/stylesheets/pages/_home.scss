@@ -1,4 +1,10 @@
 // Specific CSS for your home-page
-body {
+
+.background-image {
   min-height: 100vh;
+  background-image: image-url('home_background.gif');
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
 }

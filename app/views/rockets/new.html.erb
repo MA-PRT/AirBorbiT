@@ -1,1 +1,9 @@
-<%= render "form" %>
+<div class="d-flex">
+  <div class="col-2 d-flex align-items-center justify-content-center">
+    <a href="<%= rockets_path %>" class="text-decoration-none">
+      <i id="return-button" class="fa-solid fa-circle-arrow-left" style="color: #fca311; font-size: 40px;"></i>
+    </a>
+  </div>
+  <%= render "form", class:"mb-3" %>
+  <div class="col-2"></div>
+</div>

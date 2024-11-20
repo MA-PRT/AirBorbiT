@@ -1,60 +1,67 @@
-<div id="show-container" class="container mt-3">
-  <div class="row">
+<div class="d-flex">
+  <div class="col-1 d-flex align-items-center justify-content-center">
+    <a href="<%= rockets_path %>" class="text-decoration-none">
+      <i id="return-button" class="fa-solid fa-circle-arrow-left" style="color: #fca311; font-size: 40px;"></i>
+    </a>
+  </div>
+  <div id="show-container" class="container mt-3 align-center">
+    <div class="row">
+      <div class="col-6 bg-light-grey text-white">
+        <div id="carouselExampleIndicators" class="carousel slide">
 
-    <div class="col-6 bg-light-grey text-white">
-      <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
 
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <div class="carousel-inner">
+            <div class="carousel-item active carousel-img">
+              <img src="<%= @rocket.img_url %>" class="d-block w-100" alt="Rocket Image 1">
+            </div>
+            <div class="carousel-item carousel-img">
+              <img src="<%= @rocket.img_url2 %>" class="d-block w-100" alt="Rocket Image 2">
+            </div>
+            <div class="carousel-item carousel-img">
+              <img src="<%= @rocket.img_url3 %>" class="d-block w-100" alt="Rocket Image 3">
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
+      </div>
 
-        <div class="carousel-inner">
-          <div class="carousel-item active carousel-img">
-            <img src="<%= @rocket.img_url %>" class="d-block w-100" alt="Rocket Image 1">
-          </div>
-          <div class="carousel-item carousel-img">
-            <img src="<%= @rocket.img_url2 %>" class="d-block w-100" alt="Rocket Image 2">
-          </div>
-          <div class="carousel-item carousel-img">
-            <img src="<%= @rocket.img_url3 %>" class="d-block w-100" alt="Rocket Image 3">
-          </div>
+      <div class="col-5 text-white m-4">
+        <div class="text-white border-0 shadow-sm rounded p-3">
+          <h2 class="rocket-name"><%= @rocket.name %></h2>
+          <p class="rocket-details"><strong>Price:</strong> <%= @rocket.price_per_day %> $ / day</p>
+          <p class="rocket-details"><strong>Passenger Capacity:</strong> <%= @rocket.number_passengers %></p>
+          <p class="rocket-description"><%= @rocket.content %></p>
         </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
-
-    <div class="col-5 text-white m-4">
-      <div class="text-white border-0 shadow-sm rounded p-3">
-        <h2 class="rocket-name"><%= @rocket.name %></h2>
-        <p class="rocket-details"><strong>Price:</strong> <%= @rocket.price_per_day %> $ / day</p>
-        <p class="rocket-details"><strong>Passenger Capacity:</strong> <%= @rocket.number_passengers %></p>
-        <p class="rocket-description"><%= @rocket.content %></p>
+  </div>
+  <div class="col-1"></div>
+</div>
+<div class="row mt-4">
+  <div class="col text-center">
+    <div data-controller="toggle">
+      <button data-action="click->toggle#fire" class="shadow-lg btn btn-warning btn-lg">
+        Book the <strong><%= @rocket.name %></strong> now !
+      </button>
+      <div data-toggle-target="togglableElement" class="d-none mt-3">
+        <%= render "bookings/form", rocket: @rocket %>
       </div>
     </div>
   </div>
 </div>
-  <div class="row mt-4">
-    <div class="col text-center">
-      <div data-controller="toggle">
-        <button data-action="click->toggle#fire" class="shadow-lg btn btn-warning btn-lg">
-          Book the <strong><%= @rocket.name %></strong> now !
-        </button>
-        <div data-toggle-target="togglableElement" class="d-none mt-3">
-          <%= render "bookings/form", rocket: @rocket %>
-        </div>
-      </div>
-    </div>
-  </div>
 <div id="rocket" class="rocket">
   🚀
 </div>

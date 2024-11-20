@@ -33,7 +33,7 @@ class RocketsController < ApplicationController
 
   def destroy
     @rocket.destroy
-    redirect_to rockets_path
+    redirect_to   rockets_path
   end
 
   private

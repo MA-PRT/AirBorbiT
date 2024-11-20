@@ -1,9 +1,5 @@
-<div class="background-image">
+<div class="background-image d-flex justify-content-center align-items-center flex-column text-center">
+  <%= image_tag "logo_rocket_colored.png", class: "rounded-circle mb-5", id: "home-logo" %>
 
-  <div class="d-flex">
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <%= link_to "Hey Pilot, get ready to fly!", rockets_path, class: "p-3 btn btn-warning btn-lg fs-2 rounded-pill border border-white border-2 fw-bold text-white" %>
-    </div>
-  </div>
-
+  <%= link_to "Hey Pilot, get ready to fly!", rockets_path, class: "btn btn-warning btn-lg fs-2 rounded-pill border border-white border-2 fw-bold text-white" %>
 </div>

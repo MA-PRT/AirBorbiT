@@ -1,0 +1,36 @@
+<div id="index" class="container text-center text-white shadow-2 mt-3">
+
+
+      <br>
+      <%= link_to "Add a new rocket", new_rocket_path, class: "btn btn-light" %>
+      <br>
+
+    <% @rockets.each do |rocket| %>
+      <%= link_to rocket_path(rocket), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
+        <img src="<%= rocket.img_url %>" alt="Picture of <%= rocket.name %>" class="card-img-top h-100 rounded-top-4" >
+        <div class="card-body">
+          <h5 class="card-title mb-2"><strong></strong><%= rocket.name %></h5>
+          <p class="card-text m-0"><%= rocket.number_passengers %> <i class="fa-solid fa-user-astronaut"></i>
+            <i class="fa-solid fa-credit-card"></i> <%= rocket.price_per_day %>$/day</p>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+<h1 id="index" class="container text-center text-white shadow-2 mt-3">Dashboard of <%= current_user.first_name %></h1>
+  <h2>My rockets <i class="fa-solid fa-rocket fa-spin"></i></h2>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%= rocket.img_url %>" class="img-fluid rounded-start" alt="Picture of <%= rocket.name %>">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>

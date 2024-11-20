@@ -22,7 +22,7 @@
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My rockets", "", class: "dropdown-item" %>  <%# lien pour accéder à mes rockets %>
+              <%= link_to "My rockets", myrockets_user_rockets_path(user_id: current_user.id), class: "dropdown-item" %>  <%# lien pour accéder à mes rockets %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

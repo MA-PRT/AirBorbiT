@@ -1,5 +1,10 @@
 class RocketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_rocket, only: %i[ show edit update destroy ]
+
+  def myrockets
+    @rockets = current_user.rockets
+  end
 
   def index
     @rockets = Rocket.all

@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :users, only: [:show] do
-    resources :rockets
+    resources :rockets do
+      collection do
+        get "myrockets"
+      end
+    end
+
     resources :bookings, only: [:index, :show, :edit, :update]
   end
 

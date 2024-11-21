@@ -1,5 +1,10 @@
 class RocketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_rocket, only: %i[ show edit update destroy ]
+
+  def myrockets
+    @rockets = current_user.rockets
+  end
 
   def index
     @rockets = Rocket.all
@@ -24,13 +29,14 @@ class RocketsController < ApplicationController
     @rocket = Rocket.new(params_rocket)
     @rocket.user = current_user
     if @rocket.save
-      redirect_to rocket_path(@rocket)
+      redirect_to rockets_path(@rocket)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @rocket = Rocket.find(params[:id])
   end
 
   def update
@@ -39,6 +45,7 @@ class RocketsController < ApplicationController
   end
 
   def destroy
+    @rocket = Rocket.find(params[:id])
     @rocket.destroy
     redirect_to mine_bookings_path
   end

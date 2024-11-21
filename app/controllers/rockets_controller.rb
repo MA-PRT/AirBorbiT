@@ -3,6 +3,13 @@ class RocketsController < ApplicationController
 
   def index
     @rockets = Rocket.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        rockets.name @@ :query
+        OR rockets.content @@ :query
+      SQL
+      @rockets = @rockets.where(sql_subquery, query: params[:query])
+    end
   end
 
   def show

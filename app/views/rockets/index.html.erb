@@ -1,16 +1,19 @@
 <div id="index" class="container text-center text-white shadow-2 mt-3">
-  <h1>Available rockets <i class="fa-solid fa-rocket fa-spin"></i></h1>
-  <br>
-  <%= link_to "Add your rocket", new_rocket_path, class: "shadow-lg btn btn-warning btn-lg" %>
-  <br>
+
   <div class="row text-center">
 
-  <div>
-    <br>
-    <h3 class="shadow-2">Do you want to become a Pilot?</h3>
-    <br>
-    <h4 class="shadow-2">Choose your <i class="fa-solid fa-shuttle-space fa-bounce"></i> and get ready for take-off!</h4>
-  </div>
+    <h3 class="shadow-2 mt-2 mb-2">Do you want to become a Pilot?</h3>
+
+    <h4 class="shadow-2 mt-2 mb-2">Choose your <i class="fa-solid fa-shuttle-space fa-bounce"></i> and get ready for take-off!</h4>
+
+    <%= form_with url: rockets_path, method: :get, class: "d-flex mt-2 mb-2" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find your rocket here..."
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-outline-warning" %>
+    <% end %>
 
     <% @rockets.each do |rocket| %>
       <%= link_to rocket_path(rocket), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
@@ -22,6 +25,8 @@
         </div>
       <% end %>
     <% end %>
-
   </div>
 </div>
+
+<%# Bon Add yo rocket %>
+<%# <%= link_to "Add your rocket", new_rocket_path, class: "shadow-lg btn btn-warning btn-lg" %> %>

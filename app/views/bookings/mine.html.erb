@@ -1,46 +1,92 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">My bookings</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">My requests</button>
-  </li>
-
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-    <% @bookings.each do |booking| %>
-        <%= link_to booking_path(booking), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
-          <img src="<%= booking.rocket.img_url %>" alt="Picture of <%= booking.rocket.name %>" class="card-img-top h-100 rounded-top-4" >
-          <div class="card-body">
-            <h5 class="card-title mb-2"><%= booking.rocket.name %></h5>
-            <p class="card-text m-0"> Booked for <%= booking.number_of_days %> day</p>
-            <p class="card-text m-0"> From <%= booking.start_date %> to <%= booking.end_date %></p>
-            <p class="card-text m-0"> Total price : <%= booking.full_price %> $</p>
-          </div>
-        <% end %>
-      <% end %>
-  </div>
-  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-      <% @requests.each do |request| %>
-        <%= link_to booking_path(request), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
-          <img src="<%= request.rocket.img_url %>" alt="Picture of <%= request.rocket.name %>" class="card-img-top h-100 rounded-top-4" >
-          <div class="card-body">
-            <h5 class="card-title mb-2"><%= request.rocket.name %></h5>
-            <p class="card-text m-0"> Booked for <%= request.number_of_days %> day</p>
-            <p class="card-text m-0"> From <%= request.start_date %> to <%= request.end_date %></p>
-            <p class="card-text m-0"> Total price : <%= request.full_price %> $</p>
-          </div>
-        <% end %>
-      <% end %>
-  </div>
+<div class="container ">
+  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="btn nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">My bookings</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="btn nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">My requests</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="btn nav-link" id="rockets-tab" data-bs-toggle="tab" data-bs-target="#rockets-tab-pane" type="button" role="tab" aria-controls="rockets-tab-pane" aria-selected="false">My rockets</button>
+    </li>
+  </ul>
 </div>
 
-<%#
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+<div class="tab-content position-sticky" id="myTabContent">
+  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <div class="container justify-content-center">
+      <% @bookings.each do |booking| %>
+          <div class="d-flex justify-content-between card-product m-2 rounded-4 border-2 border-white bg-white" style="--bs-bg-opacity: .25">
+            <img src="<%= booking.rocket.img_url%>" />
+            <div class="card-product-infos">
+              <h2 class="card-title mb-2"><%= booking.rocket.name %></h2>
+              <p class="card-text m-0"><%= booking.rocket.content %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2 class="card-title mb-2"><strong>Booking summary</strong></h2>
+              <p class="card-text m-0"> Booked for <strong><%= booking.number_of_days %> day</strong></p>
+              <p class="card-text m-0"> From <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong> </p>
+              <p class="card-text m-0"> Total price : <strong><%= booking.full_price %> $</strong></p>
+            </div>
+            <div class="card-product-infos position-relative mt-3">
+              <button type="button" class="btn btn-outline-success position-absolute top-40 start-0">Edit</button>
+              <button type="button" class="btn btn-outline-danger position-absolute top-50 start-0">Cancel</button>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
-</div> %>
+
+  <div class="tab-pane fade position-sticky" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div class="container justify-content-center">
+      <% @requests.each do |request| %>
+          <div class="d-flex justify-content-between card-product m-2 rounded-4 border-2 border-white bg-white" style="--bs-bg-opacity: .25">
+            <img src="<%= request.rocket.img_url%>" />
+            <div class="card-product-infos">
+              <h2 class="card-title mb-2"><%= request.rocket.name %></h2>
+              <p class="card-text m-0"><%= request.rocket.content %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2 class="card-title mb-2"><strong>Request summary</strong></h2>
+              <p class="card-text m-0"> Booked for <strong><%= request.number_of_days %> day</strong></p>
+              <p class="card-text m-0"> From <strong><%= request.start_date %></strong> to <strong><%= request.end_date %></strong> </p>
+              <p class="card-text m-0"> Total price : <strong><%= request.full_price %> $</strong></p>
+            </div>
+            <div class="card-product-infos position-relative mt-3">
+              <button type="button" class="btn btn-outline-success position-absolute top-40 start-0">Accept</button>
+              <button type="button" class="btn btn-outline-danger position-absolute top-50 start-0">Reject</button>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade position-sticky" id="rockets-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div class="container justify-content-center">
+          <% @rockets.each do |rocket| %>
+          <div class="d-flex justify-content-between card-product m-2 rounded-4 border-2 border-white bg-white" style="--bs-bg-opacity: .25">
+            <img src="<%= rocket.img_url%>" />
+            <div class="card-product-infos">
+              <h2 class="card-title mb-2"><%= rocket.name %></h2>
+              <p class="card-text m-0"><%= rocket.content %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2 class="card-title mb-2"><strong>rocket summary</strong></h2>
+              <p class="card-text m-0"> number of passengers : <strong><%= rocket.number_passengers %> </strong></p>
+              <p class="card-text m-0"> Price :  <strong><%= rocket.price_per_day %></strong> /day </strong> </p>
+            </div>
+            <div class="card-product-infos position-relative mt-3">
+              <button type="button" class="btn btn-outline-success position-absolute top-40 start-0">Edit</button>
+              <button type="button" class="btn btn-outline-danger position-absolute top-50 start-0">
+                  <%= link_to "Delete",
+                    rocket_path(rocket),
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                  %>
+              </button>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

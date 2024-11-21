@@ -20,7 +20,7 @@
         <%= content_tag(:p, alert, class: "alert") if alert.present? %>
       </div>
     <% end %>
-    <%= yield %>
+    <%= yield %>  
     <% unless current_page?(root_path) %>
       <footer>
         <%= render 'shared/footer' %>

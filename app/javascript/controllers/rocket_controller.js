@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["rocket"];
+  static targets = ["input"];
 
   animate(event) {
     event.preventDefault();
@@ -15,7 +16,7 @@ export default class extends Controller {
       setTimeout(() => {
         console.log("Submitting the form...");
         this.element.submit();
-      }, 2000);
+      }, 3000);
     }
   }
 }

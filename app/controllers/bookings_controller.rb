@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def mine
+    @rockets = current_user.rockets
     @bookings = current_user.bookings
     @requests = Booking.includes(:user, :rocket).where(rocket: current_user.rockets)
   end

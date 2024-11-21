@@ -28,12 +28,12 @@ class RocketsController < ApplicationController
 
   def update
     @rocket.update(params_rocket)
-    redirect_to rocket_path(@rocket)
+    redirect_to mine_bookings_path
   end
 
   def destroy
     @rocket.destroy
-    redirect_to   rockets_path
+    redirect_to mine_bookings_path
   end
 
   private

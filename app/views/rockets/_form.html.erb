@@ -5,7 +5,7 @@
     <%= f.input :content %>
     <%= f.input :number_passengers %>
     <%= f.input :price_per_day %>
-    <%= f.input :img_url %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit class: "btn btn-primary btn-lg" %>
   <% end %>
   </div>

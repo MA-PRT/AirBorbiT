@@ -22,23 +22,29 @@ class RocketsController < ApplicationController
     @rocket = Rocket.new(params_rocket)
     @rocket.user = current_user
     if @rocket.save
-      redirect_to rocket_path(@rocket)
+      redirect_to rockets_path(@rocket)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @rocket = Rocket.find(params[:id])
   end
 
   def update
-    @rocket.update(params_rocket)
-    redirect_to rocket_path(@rocket)
+    @rocket = Rocket.find(params[:id])
+    if @rocket.update(rocket_params)
+      redirect_to rockets_path(@rocket), notice: "Rocket successfully updated."
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @rocket = Rocket.find(params[:id])
     @rocket.destroy
-    redirect_to   rockets_path
+    redirect_to rockets_path(@rocket), notice: "Rocket successfully deleted."
   end
 
   private

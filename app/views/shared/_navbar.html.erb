@@ -21,7 +21,7 @@
               <%= image_tag "https://futureoflife.org/wp-content/uploads/2020/08/elon_musk_royal_society.jpg", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %> <%# // ajouter le lien de la page "my rockets" %>
+              <%= link_to "My rockets", myrockets_rockets_path , class: "dropdown-item" %> <%# // ajouter le lien de la page "my rockets" %>
               <%= link_to "My bookings", mine_bookings_path, class: "dropdown-item" %> <%# // ajouter le lien de la page "my bookings" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

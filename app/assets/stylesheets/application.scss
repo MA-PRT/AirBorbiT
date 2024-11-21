@@ -6,11 +6,14 @@
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr.css";
+@import "flatpickr/dist/themes/dark.css";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+@import "pages/mine";
 
 body {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NGC281_Nebulosa_do_Pacman.jpg/1920px-NGC281_Nebulosa_do_Pacman.jpg);
@@ -19,4 +22,12 @@ body {
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin-top: 0;
+  padding: 0;
 }

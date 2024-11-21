@@ -13,6 +13,7 @@ class RocketsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new(rocket: @rocket)
   end
 
   def new
@@ -39,13 +40,13 @@ class RocketsController < ApplicationController
 
   def destroy
     @rocket.destroy
-    redirect_to rockets_path
+    redirect_to   rockets_path
   end
 
   private
 
   def params_rocket
-    params.require(:rocket).permit(:name, :content, :price_per_day, :number_passengers, :img_url)
+    params.require(:rocket).permit(:name, :content, :price_per_day, :number_passengers, :img_url, :img_url2, :img_url3)
   end
 
   def set_rocket

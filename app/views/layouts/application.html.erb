@@ -16,9 +16,11 @@
     <%= content_tag(:p, notice, class: "notice") if notice.present? %>
     <%= content_tag(:p, alert, class: "alert") if alert.present? %>
     <%= yield %>
-  <footer>
-    <%= render 'shared/footer' %>
-  </footer>
+    <% unless current_page?(root_path) %>
+      <footer>
+        <%= render 'shared/footer' %>
+      </footer>
+    <% end %>
   </body>
 </html>
 

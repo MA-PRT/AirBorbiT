@@ -10,15 +10,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :users, only: [:show] do
-    resources :rockets do
+  # resources :users, only: [:show] do
+    resources :rockets
+    resources :bookings, only: [:index, :show, :edit, :update] do
       collection do
-        get "myrockets"
+        get :mine
       end
     end
-
-    resources :bookings, only: [:index, :show, :edit, :update]
-  end
+  # end
 
 
   resources :rockets, only: [:index, :show, :new, :create] do

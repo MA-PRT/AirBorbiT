@@ -9,6 +9,11 @@ class BookingsController < ApplicationController
     @booking = @rocket.bookings.new
   end
 
+  def mine
+    @bookings = current_user.bookings
+    @requests = Booking.includes(:user, :rocket).where(rocket: current_user.rockets)
+  end
+
   def create
     @booking = @rocket.bookings.new(booking_params)
     @booking.user = current_user

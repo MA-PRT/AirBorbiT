@@ -11,10 +11,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
 
-  <body style="background-image: https://s2.best-wallpaper.net/wallpaper/3840x2160/1803/NGC-7380-Wizard-Nebula-stars-universe_3840x2160.jpg">
-    <%= render "shared/navbar" %>
-    <%= content_tag(:p, notice, class: "notice") if notice.present? %>
-    <%= content_tag(:p, alert, class: "alert") if alert.present? %>
+  <body>
+    <% unless current_page?(root_path) %>
+      <body style="background-image: https://s2.best-wallpaper.net/wallpaper/3840x2160/1803/NGC-7380-Wizard-Nebula-stars-universe_3840x2160.jpg">
+      <%= render "shared/navbar" %>
+      <div class="notices">
+        <%= content_tag(:p, notice, class: "notice btn btn-warning btn-lg fs-2 rounded-pill border border-white border-2 fw-bold text-white") if notice.present? %>
+        <%= content_tag(:p, alert, class: "alert") if alert.present? %>
+      </div>
+    <% end %>
     <%= yield %>
     <% unless current_page?(root_path) %>
       <footer>

@@ -16,6 +16,11 @@
   text-decoration: none;
 }
 
-form {
-  width: 50%;
+#btnaddrocket {
+  position: fixed;
+  top: 20;
+  right: 0;
+  z-index: 1;
+  margin-right: 50px;
+  margin-top: 30px;
 }

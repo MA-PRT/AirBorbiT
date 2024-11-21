@@ -3,6 +3,13 @@ class RocketsController < ApplicationController
 
   def index
     @rockets = Rocket.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        rockets.name @@ :query
+        OR rockets.content @@ :query
+      SQL
+      @rockets = @rockets.where(sql_subquery, query: params[:query])
+    end
   end
 
   def show
@@ -39,7 +46,7 @@ class RocketsController < ApplicationController
   private
 
   def params_rocket
-    params.require(:rocket).permit(:name, :content, :price_per_day, :number_passengers, :img_url, :img_url2, :img_url3)
+    params.require(:rocket).permit(:name, :content, :price_per_day, :number_passengers, photos: [])
   end
 
   def set_rocket

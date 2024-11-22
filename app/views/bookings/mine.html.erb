@@ -12,6 +12,7 @@
   </ul>
 </div>
 
+<%# MY BOOKINGS TAB %>
 <div class="tab-content position-sticky" id="myTabContent">
   <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     <div class="container justify-content-center">
@@ -37,6 +38,7 @@
     </div>
   </div>
 
+<%# MY REQUESTS %>
   <div class="tab-pane fade position-sticky" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container justify-content-center">
       <% @requests.each do |request| %>
@@ -61,6 +63,7 @@
     </div>
   </div>
 
+<%# MY ROCKETS %>
   <div class="tab-pane fade position-sticky" id="rockets-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container justify-content-center">
           <% @rockets.each do |rocket| %>

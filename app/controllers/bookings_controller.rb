@@ -9,6 +9,17 @@ class BookingsController < ApplicationController
     @booking = @rocket.bookings.new
   end
 
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to mine_bookings_path
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
   def mine
     @rockets = current_user.rockets
     @bookings = current_user.bookings

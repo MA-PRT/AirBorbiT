@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   # Bookings routes
-  resources :bookings, only: [:index, :show, :edit, :update] do
+  resources :bookings, only: [:index, :show, :edit, :update, :destroy] do
     collection do
       get :mine
     end

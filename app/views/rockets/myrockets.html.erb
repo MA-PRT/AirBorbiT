@@ -1,0 +1,41 @@
+<div id="index" class="container text-center text-white shadow-2 mt-3 mb-5">
+
+  <h1>My rockets <i class="fa-solid fa-rocket fa-spin"></i></h1>
+  <br>
+  <%= link_to "Add your rocket", new_rocket_path, class: "shadow-lg btn btn-warning btn-lg" %>
+  <br>
+
+</div>
+
+<% @rockets.each do |rocket| %>
+<div class="card mb-3 ms-3 " style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4 p-0">
+      <%= link_to rocket_path(rocket) do %>
+      <img src="<%= rocket.img_url %>" class="img-fluid rounded-start" alt="Picture of <%= rocket.name %>">
+      <% end %>
+    </div>
+    <div class="col-md-8 bg-dark" style="--bs-bg-opacity-opacity-5">
+      <div class="card-body text-white">
+        <h5 class="card-title text-center"><%= rocket.name %></h5>
+
+          <p class="card-text text-center"><%= rocket.content %></p>
+          <div class="d-flex justify-content-around align-items-center my-3">
+            <p class="card-text m-0 d-flex align-items-center">
+              <i class="fa-solid fa-credit-card me-1"></i> <%= rocket.price_per_day %>$/day
+            </p>
+            <p class="card-text m-0 d-flex align-items-center">
+              <%= rocket.number_passengers %> <i class="fa-solid fa-user-astronaut ms-1"></i>
+            </p>
+          </div>
+
+          <div class="d-flex justify-content-evenly align-items-center">
+            <%= link_to "Edit", edit_rocket_path(rocket), class: "btn btn-outline-success" %>
+            <%= link_to "Delete", rocket_path(rocket), method: :delete, data: { confirm: "Are you sure you want to delete this rocket?" }, class: "btn btn-outline-danger" %>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

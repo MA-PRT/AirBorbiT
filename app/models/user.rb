@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :rockets
   has_many :bookings
+  # has_many :rented_rockets, through: :bookings, source: :rocket
+  has_many :bookings_on_my_rockets, through: :rockets, source: :bookings
 end

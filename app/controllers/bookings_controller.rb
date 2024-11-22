@@ -9,6 +9,12 @@ class BookingsController < ApplicationController
     @booking = @rocket.bookings.new
   end
 
+  def mine
+    @rockets = current_user.rockets
+    @bookings = current_user.bookings
+    @requests = Booking.includes(:user, :rocket).where(rocket: current_user.rockets)
+  end
+
   def create
     @booking = @rocket.bookings.new(booking_params)
     @booking.user = current_user
@@ -24,9 +30,6 @@ class BookingsController < ApplicationController
       redirect_to rocket_path(@rocket), notice: "Booking not created!"
     end
   end
-
-
-
 
   private
 

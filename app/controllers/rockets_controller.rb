@@ -29,7 +29,7 @@ class RocketsController < ApplicationController
     @rocket = Rocket.new(params_rocket)
     @rocket.user = current_user
     if @rocket.save
-      redirect_to rockets_path(@rocket)
+      redirect_to rocket_path(@rocket)
     else
       render :new, status: :unprocessable_entity
     end

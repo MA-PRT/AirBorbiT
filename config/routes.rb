@@ -18,4 +18,8 @@ Rails.application.routes.draw do
       get :mine
     end
   end
+
+  patch "accept/:id", to: "bookings#accept", as: 'accept'
+  patch "reject/:id", to: "bookings#reject", as: 'reject'
+
 end

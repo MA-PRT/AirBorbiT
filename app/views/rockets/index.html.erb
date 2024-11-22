@@ -1,27 +1,35 @@
 <div id="index" class="container text-center text-white shadow-2 mt-3">
-  <h1>Available rockets <i class="fa-solid fa-rocket fa-spin"></i></h1>
-  <br>
-  <%= link_to "Add your rocket", new_rocket_path, class: "shadow-lg btn btn-warning btn-lg" %>
-  <br>
-  <div class="row text-center">
 
-  <div>
-    <br>
-    <h3 class="shadow-2">Do you want to become a Pilot?</h3>
-    <br>
-    <h4 class="shadow-2">Choose your <i class="fa-solid fa-shuttle-space fa-bounce"></i> and get ready for take-off!</h4>
+  <%= link_to "Add your rocket", new_rocket_path, class: "shadow-lg btn btn-warning btn-lg", id:"btnaddrocket" %>
+
+<div class="row justify-content-center">
+
+  <h3 class="shadow-2 mt-2 mb-2">Choose your <i class="fa-solid fa-shuttle-space fa-bounce"></i> and get ready for take-off!</h3>
+
+  <div class="col-sm-8 my-3">
+
+      <%= form_with url: rockets_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find your rocket here..."
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-outline-warning" %>
+      <% end %>
+    </div>
   </div>
+
+  <div class="row text-center">
 
     <% @rockets.each do |rocket| %>
       <%= link_to rocket_path(rocket), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
-        <img src="<%= rocket.img_url %>" alt="Picture of <%= rocket.name %>" class="card-img-top h-100 rounded-top-4" >
+        <%= cl_image_tag rocket.photos.first.key, alt: "Picture of #{rocket.name}", class: "card-img-top h-100 rounded-top-4" %>
         <div class="card-body">
           <h5 class="card-title mb-2"><strong></strong><%= rocket.name %></h5>
-          <p class="card-text m-0"><i class="fa-solid fa-credit-card"></i> <%= rocket.price_per_day %>$/day</p>
+          <p class="card-text m-0"><i class="fa-solid fa-credit-card"></i> <%= rocket.price_per_day %>M$/day</p>
           <p class="card-text m-0"><%= rocket.number_passengers %> <i class="fa-solid fa-user-astronaut"></i></p>
         </div>
       <% end %>
     <% end %>
-
   </div>
 </div>

@@ -1,11 +1,13 @@
 .rocket {
   position: fixed;
-  bottom: -50px;
-  left: -50px;
-  font-size: 3rem;
+  bottom: -150px;
+  left: 82%;
+  height: 30px;
+  width: 30px;
   transition: transform 3s ease-in-out;
+  transform: rotate(-45deg);
 }
 
 .rocket-fly {
-  transform: translateX(150vw) translateY(-135vh); /* Animation : la fusée traverse l'écran */
+  transform: translateX(0%) translateY(-150vh) rotate(-45deg);
 }

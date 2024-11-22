@@ -13,6 +13,8 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+@import "pages/mine";
+@import "components/dashboard_card";
 
 body {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/NGC281_Nebulosa_do_Pacman.jpg/1920px-NGC281_Nebulosa_do_Pacman.jpg);
@@ -27,6 +29,11 @@ body {
 
 html, body {
   height: 100%;
-  margin-top: 0;
-  padding: 0;
+}
+
+.notices {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3em;
 }

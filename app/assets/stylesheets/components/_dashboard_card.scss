@@ -36,7 +36,12 @@
 }
 
 .btn-cards {
-  width: 200px;
+  width: 150px;
   font-size: 20px;
   border-radius: 5px;
+  margin-top: -8px;
+}
+
+.booking-tab:hover {
+  color: orange;
 }

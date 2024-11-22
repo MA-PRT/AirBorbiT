@@ -28,15 +28,14 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status == "accepted"
-    @booking.save!
+    @booking.update(status: "accepted")
     redirect_to mine_bookings_path
   end
 
   def reject
     @booking = Booking.find(params[:id])
-    @booking.status == "rejected"
-    @booking.save!
+    @booking.status = "rejected"
+    @booking.save
     redirect_to mine_bookings_path
   end
 
@@ -59,7 +58,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:number_of_days, :full_price)
+    params.require(:booking).permit(:number_of_days, :full_price, :status)
   end
 
   def set_rocket

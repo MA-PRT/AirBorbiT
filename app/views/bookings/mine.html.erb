@@ -41,25 +41,27 @@
 <%# MY REQUESTS %>
   <div class="tab-pane fade position-sticky" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container justify-content-center">
-      <% @requests.each do |request| %>
+      <% @rockets.each do |rocket| %>
+        <%= rocket.bookings.each do |booking| %>
           <div class="d-flex justify-content-between card-product m-2 rounded-4 border-2 border-white bg-white" style="--bs-bg-opacity: .25" data-controller="status">
-            <%= cl_image_tag request.rocket.photos.first.key%>
+            <%= cl_image_tag booking.rocket.photos.first.key %>
             <div class="card-product-infos">
-              <h2 class="card-title mb-2"><%= request.rocket.name %></h2>
-              <p class="card-text m-0"><%= request.rocket.content %></p>
+              <h2 class="card-title mb-2"><%= booking.rocket.name %></h2>
+              <p class="card-text m-0"><%= booking.rocket.content %></p>
             </div>
             <div class="card-product-infos">
-              <h2 class="card-title mb-2"><strong>Request details</strong></h2>
-              <p class="card-text m-0"> Booked for <strong><%= request.number_of_days %> day</strong></p>
-              <p class="card-text m-0"> From <strong><%= request.start_date %></strong> to <strong><%= request.end_date %></strong> </p>
-              <p class="card-text m-0"> Total price : <strong><%= request.full_price %>M $</strong></p>
-              <p class="card-text m-0" data-status-target="currentstatus"> Status : <strong><%= request.status %></strong></p>
+              <h2 class="card-title mb-2"><strong>booking details</strong></h2>
+              <p class="card-text m-0"> Booked for <strong><%= booking.number_of_days %> day</strong></p>
+              <p class="card-text m-0"> From <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong> </p>
+              <p class="card-text m-0"> Total price : <strong><%= booking.full_price %>M $</strong></p>
+              <p class="card-text m-0" data-status-target="currentstatus"> Status : <strong><%= booking.status %></strong></p>
             </div>
             <div class="card-product-infos position-relative mt-3" data-status-target="divbutton">
-              <%= link_to "Accept", accept_path(request), data: { turbo_method: :patch }, class: "btn btn-cards btn-outline-success position-absolute top-40 start-0", data: { action: "click->status#accept" } %>
-              <%= link_to "Reject", reject_path(request), data: { turbo_method: :patch }, class: "btn btn-cards btn-outline-danger position-absolute top-50 start-0", data: { action: "click->status#reject" } %>
+              <%= link_to "Accept", accept_path(booking), data: { turbo_method: :patch }, class: "btn btn-cards btn-outline-success position-absolute top-40 start-0" %>
+              <%= link_to "Reject", reject_path(booking), data: { turbo_method: :patch }, class: "btn btn-cards btn-outline-danger position-absolute top-50 start-0" %>
             </div>
           </div>
+        <% end %>
       <% end %>
     </div>
   </div>

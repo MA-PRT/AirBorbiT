@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  patch "accept/:id", to: "bookings#accept", as: 'accept'
-  patch "reject/:id", to: "bookings#reject", as: 'reject'
+  patch "bookings/:id/accept", to: "bookings#accept", as: 'accept'
+  patch "bookings/:id/reject", to: "bookings#reject", as: 'reject'
 
 end

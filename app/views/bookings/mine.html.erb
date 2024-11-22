@@ -54,8 +54,8 @@
               <p class="card-text m-0" data-status-target="currentstatus"> Status : <strong><%= request.status %></strong></p>
             </div>
             <div class="card-product-infos position-relative mt-3" data-status-target="divbutton">
-              <button type="button" class="btn btn-cards btn-outline-success position-absolute top-40 start-0" data-action="click->status#accept">Accept</button>
-              <button type="button" class="btn btn-cards btn-outline-danger position-absolute top-50 start-0" data-action="click->status#reject">Reject</button>
+              <%= link_to "Accept", accept_path(request), data: { turbo_method: :patch }, class: "btn btn-cards btn-outline-success position-absolute top-40 start-0", data: { action: "click->status#accept" } %>
+              <%= link_to "Reject", reject_path(request), data: { turbo_method: :patch }, class: "btn btn-cards btn-outline-danger position-absolute top-50 start-0", data: { action: "click->status#reject" } %>
             </div>
           </div>
       <% end %>

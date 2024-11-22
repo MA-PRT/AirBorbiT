@@ -8,21 +8,21 @@ export default class extends Controller {
     console.log(this.currentstatusTarget.textContent.slice(9))
   }
 
-  accept (event) {
-    event.preventDefault();
+  // accept (event) {
+  //   event.preventDefault();
 
-    const currentStatus = this.currentstatusTarget;
-    console.log(currentStatus);
-    currentStatus.innerText = 'Status : accepted';
-    this.divbuttonTarget.classList.add("d-none");
-  }
+  //   const currentStatus = this.currentstatusTarget;
+  //   console.log(currentStatus);
+  //   // currentStatus.innerText = 'Status : accepted';
+  //   this.divbuttonTarget.classList.add("d-none");
+  // }
 
-  reject (event) {
-    event.preventDefault();
+  // reject (event) {
+  //   event.preventDefault();
 
-    const currentStatus = this.currentstatusTarget;
-    console.log(currentStatus);
-    currentStatus.innerText = 'Status : rejected';
-    this.divbuttonTarget.classList.add("d-none");
-  }
+  //   const currentStatus = this.currentstatusTarget;
+  //   console.log(currentStatus);
+  //   // currentStatus.innerText = 'Status : rejected';
+  //   this.divbuttonTarget.classList.add("d-none");
+  // }
 }

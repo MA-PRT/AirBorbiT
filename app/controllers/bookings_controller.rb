@@ -26,6 +26,20 @@ class BookingsController < ApplicationController
     @requests = Booking.includes(:user, :rocket).where(rocket: current_user.rockets)
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status == "accepted"
+    @booking.save!
+    redirect_to mine_bookings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.status == "rejected"
+    @booking.save!
+    redirect_to mine_bookings_path
+  end
+
   def create
     @booking = @rocket.bookings.new(booking_params)
     @booking.user = current_user

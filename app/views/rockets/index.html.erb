@@ -23,12 +23,20 @@
 
     <% @rockets.each do |rocket| %>
       <%= link_to rocket_path(rocket), class: "btn card rounded-4 col-4 p-0 m-5 w-25 border-1 border-white shadow" do%>
-        <%= cl_image_tag rocket.photos.first.key, alt: "Picture of #{rocket.name}", class: "card-img-top h-100 rounded-top-4" %>
+        <%if rocket.photos.attached?%>
+          <%= cl_image_tag rocket.photos.first.key, alt: "Picture of #{rocket.name}", class: "card-img-top h-100 rounded-top-4" %>
+          <div class="card-body">
+            <h5 class="card-title mb-2"><strong></strong><%= rocket.name %></h5>
+            <p class="card-text m-0"><i class="fa-solid fa-credit-card"></i> <%= rocket.price_per_day %>M$/day</p>
+            <p class="card-text m-0"><%= rocket.number_passengers %> <i class="fa-solid fa-user-astronaut"></i></p>
+          </div>
+        <%else%>
         <div class="card-body">
           <h5 class="card-title mb-2"><strong></strong><%= rocket.name %></h5>
           <p class="card-text m-0"><i class="fa-solid fa-credit-card"></i> <%= rocket.price_per_day %>M$/day</p>
           <p class="card-text m-0"><%= rocket.number_passengers %> <i class="fa-solid fa-user-astronaut"></i></p>
         </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

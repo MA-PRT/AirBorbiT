@@ -3,14 +3,14 @@
     <%= simple_form_for([@rocket, @booking], html: { id: "rocketForm", data: { controller: "rocket", action: "submit->rocket#animate" } }) do |f| %>
       <%= f.input :date_range,
                   as: :string,
-                  label: "Select a date range for your trip :",
+                  label: "When would you like to travel ?",
                   input_html: {
                     data: {
                       action: "change->datepicker#checkDateRange",
                       datepicker_target: "input"
                     }
                   } %>
-      <%= f.submit class: "btn btn-primary btn-lg shadow-lg" %>
+      <%= f.submit "Confirm your booking", class: "btn btn-primary btn-lg shadow-lg" %>
     <% end %>
   </div>
 </div>

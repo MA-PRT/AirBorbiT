@@ -14,3 +14,12 @@
 .nav-link {
   color: white;
 }
+
+.navbar-brand img {
+  scale: 135%;
+  margin-left: 3px;
+}
+
+#homeLinkHover:hover {
+  color: $orange;
+}

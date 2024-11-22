@@ -10,7 +10,7 @@ user1 = User.create!(email: "emusk@spacex.com", password: "azerty")
 user2 = User.create!(email: "john@gmail.com", password: "azerty")
 user3 = User.create!(email: "sergio@gmail.com", password: "azerty")
 
-puts "Creating rockets..."
+puts "Creating original rockets..."
 
 rocket1 = Rocket.create!(
   name: "Falcon 9",
@@ -109,28 +109,29 @@ rocket4.photos.attach(
 )
 
 rocket5 = Rocket.create!(
-  name: "Water rocket",
-  content: "Elle est propulsée par la pression que l'air injecté exerce sur l'eau contenu dans la fusée. La propulsion d'une fusée à eau est basée sur le principe d'action-réaction.",
-  number_passengers: 0,
-  price_per_day: 0.1,
-  user_id: user2.id
+  name: "International Space Station",
+  content: "The International Space Station (ISS) is a modular space station in low Earth orbit. It serves as a collaborative platform for scientific research and exploration, hosting astronauts from around the world.",
+  number_passengers: 10,
+  price_per_day: 5.0,
+  user_id: user1.id
 )
 
 rocket5.photos.attach(
-  io: URI.parse("https://media.sketchfab.com/models/f2170d4a3ee04e8588c0ad29d4f91767/thumbnails/cc2632f416f64f559aeb756df51aaa5c/6258a924e6ed460ba1ce960cf979a7e9.jpeg").open,
-  filename: "image13.jpeg",
+  io: URI.parse("https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/06/iss2/18901111-1-eng-GB/ISS.jpg").open,
+  filename: "image13.jpg",
   content_type: "image/jpeg"
 )
 rocket5.photos.attach(
-  io: URI.parse("https://lumiere-a.akamaihd.net/v1/images/X-Wing-Fighter_47c7c342.jpeg?region=0%2C1%2C1536%2C864").open,
-  filename: "image14.jpeg",
+  io: URI.parse("https://www.lfm.ch/wp-content/uploads/2024/06/liss-une-structure-de-430000-kg-est-habite-en-permanence-depuis-plus-de-20-ans-archives.jpg").open,
+  filename: "image14.jpg",
   content_type: "image/jpeg"
 )
 rocket5.photos.attach(
-  io: URI.parse("https://voiture.kidioui.fr/blog/wp-content/uploads/2016/08/x-wing-star-wars.jpg").open,
+  io: URI.parse("https://www.universetoday.com/wp-content/uploads/2022/05/FRww2wLWYAABcto.jpg").open,
   filename: "image15.jpg",
   content_type: "image/jpeg"
 )
+
 
 rocket6 = Rocket.create!(
   name: "Soyouz",
@@ -156,4 +157,98 @@ rocket6.photos.attach(
   content_type: "image/jpeg"
 )
 
-puts "Seeding done"
+puts "Seeding done for original rockets..."
+puts "Creating additionnal rockets"
+
+# Rocket 7: Blue Origin New Shepard
+rocket7 = Rocket.create!(
+  name: "Blue Origin New Shepard",
+  content: "New Shepard est une fusée réutilisable de Blue Origin, conçue pour les vols suborbitaux avec passagers et expériences scientifiques.",
+  number_passengers: 6,
+  price_per_day: 1.3,
+  user_id: user1.id
+)
+
+rocket7.photos.attach(
+  io: URI.parse("https://d3ezn0y6hdgq62.cloudfront.net/assets/BlueOrigin_NewShepard_Launch.jpg").open,
+  filename: "new_shepard_1.jpg",
+  content_type: "image/jpeg"
+)
+
+# Rocket 8: Space Shuttle Atlantis
+rocket8 = Rocket.create!(
+  name: "Space Shuttle Atlantis",
+  content: "La navette spatiale Atlantis, un des symboles du programme spatial américain, a réalisé 33 missions orbitales.",
+  number_passengers: 7,
+  price_per_day: 1.8,
+  user_id: user1.id
+)
+
+rocket8.photos.attach(
+  io: URI.parse("https://www.kennedyspacecenter.com/-/media/DNC/KSCVC/Blog-Images/attraction-spotlight-space-shuttle-atlantis-img-1.ashx?la=en&hash=F8F1E7D276CA75A1F5814DD04BB6936DF15A5DCC").open,
+  filename: "atlantis_1.jpg",
+  content_type: "image/jpeg"
+)
+
+# Rocket 9: Starship
+rocket9 = Rocket.create!(
+  name: "SpaceX Starship",
+  content: "Starship est un vaisseau spatial de SpaceX conçu pour les missions vers la Lune, Mars et au-delà.",
+  number_passengers: 100,
+  price_per_day: 2.5,
+  user_id: user2.id
+)
+
+rocket9.photos.attach(
+  io: URI.parse("https://destination-orbite.net/astronautique/actualite/images/full_hr/starship-ift6.webp").open,
+  filename: "starship_1.jpg",
+  content_type: "image/jpeg"
+)
+
+# Rocket 10: Virgin Galactic Unity
+rocket10 = Rocket.create!(
+  name: "Virgin Galactic Unity",
+  content: "VSS Unity, de Virgin Galactic, est une fusée suborbitale dédiée aux vols touristiques dans l'espace.",
+  number_passengers: 6,
+  price_per_day: 1.6,
+  user_id: user2.id
+)
+
+rocket10.photos.attach(
+  io: URI.parse("https://spaceexplored.com/wp-content/uploads/sites/10/2020/09/Virgin-Galactic-SpaceShipTwo.jpg?quality=82&strip=all").open,
+  filename: "unity_1.jpg",
+  content_type: "image/jpeg"
+)
+
+# Rocket 11: Dragonfly
+rocket11 = Rocket.create!(
+  name: "Dragonfly",
+  content: "Un concept de SpaceX, destiné à tester les atterrissages précis sur des corps célestes comme Mars.",
+  number_passengers: 1,
+  price_per_day: 1.0,
+  user_id: user1.id
+)
+
+rocket11.photos.attach(
+  io: URI.parse("https://science.nasa.gov/wp-content/uploads/2024/04/dragonfly-inflight.jpg?w=4096&format=jpeg").open,
+  filename: "dragonfly_1.jpg",
+  content_type: "image/jpeg"
+)
+
+# Rocket 12: Axiom Space AX-1
+rocket12 = Rocket.create!(
+  name: "Axiom Space AX-1",
+  content: "Une mission privée en orbite terrestre basse réalisée par Axiom Space, transportant des astronautes civils.",
+  number_passengers: 4,
+  price_per_day: 2.0,
+  user_id: user2.id
+)
+
+rocket12.photos.attach(
+  io: URI.parse("https://c02.purpledshub.com/uploads/sites/41/2022/01/Axiom-1-station-25ea63b.jpg?w=1029&webp=1").open,
+  filename: "axiom_1.jpg",
+  content_type: "image/jpeg"
+)
+
+puts "Seeding done for additional rockets..."
+puts "...Seeding done"
